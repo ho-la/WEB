@@ -1,0 +1,3 @@
+#boton{
+    position: float;
+}
