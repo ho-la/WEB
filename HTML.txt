@@ -79,7 +79,7 @@ Algunos cursos gratuitos: http://www.codecademy.com , https://www.codeschool.com
 					text-transform
 					letter-spacing
 					word-spacing
-				padding: padding-top, padding-right, padding-bottom, paddingleft, padding: 1px 2px 3px 4px,	padding: 1px	
+				padding: padding-top, padding-right, padding-bottom, padding-left, padding: 1px 2px 3px 4px,	padding: 1px	
 				Border: ancho(px,em) estilo(none,hidden,solid..) color
 					border-color, border-width, border-radius(redondeados), border-style,
 				margin: auto, margin-top, margin-right, margin-bottom, margin-left, margin: 1px 2px 3px 4px o uno para todo: margin: 1px
