@@ -1,0 +1,227 @@
+HTML:
+etiquetas: 	html, 
+			head:
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+				<title>Mis pruebas</title>
+				<script src="..." ></script>
+				angular: "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"
+				JQUERY: "https://code.jquery.com/jquery-2.2.2.min.js" o 3.1.1
+				y otros scripts
+				<link rel="stylesheet" type="text/css" href="p2.css"> para el css
+				
+			body:
+				Composición de la página: 
+					header(cabezera) <= nav(navegación principal), 
+					section(agrupa bloques del mismo tema) <= article
+					aside(no relacionado), 
+					footer(cierre).
+				Bloques: div,	
+				Lista: 
+					ul(no ordenada), ol(ordenada), li(elemento).
+				Tabla:
+					table, tr(fila), td(columna), th(cabezeras) 
+					<!--Se puede primero fila y las columnas o al revés-->
+				Texto:	
+					h1, h2, h3, h4, h5, h6, strong, em, small, del, mark, span, p
+				Multimedia:	<img src="..." /> ,algunos ejemplos http://lorempixel.com/  http://dummyimage.com/
+							<audio src="..." controls autoplay loop></audio>
+							<video src="..." controls autoplay loop></video>
+							<iframe src="..." ...></iframe>
+				Enlace: <a href="..." /a>
+					http.... -> externo
+					otraPagina.html -> relativo
+					mailto:someone@mail.com?subject=Email... -> email
+				Formulario: form	
+				input: input(con type), label, button, text, text-area, radio, checkbox, <select> <option>...</option>...</select>
+						search, email, url, tel, number, range, date, month, week, time, datetime, datetime-local, color
+						propiedades:
+							placeholder="cris de fondo de pista"
+							type="", select, checked,
+							
+Evento 			Descripción 										Elementos para los que está definido
+
+onblur 			Deseleccionar el elemento 							<button>, <input>, <label>, <select>, <textarea>, <body>
+onchange 		Deseleccionar un elemento que se ha modificado 		<input>, <select>, <textarea>
+onclick 		Pinchar y soltar el ratón 							Todos los elementos
+ondblclick 		Pinchar dos veces seguidas con el ratón 			Todos los elementos
+onfocus 		Seleccionar un elemento 							<button>, <input>, <label>, <select>, <textarea>, <body>
+onkeydown 		Pulsar una tecla (sin soltar) 						Elementos de formulario y <body>
+onkeypress 		Pulsar una tecla 									Elementos de formulario y <body>
+onkeyup 		Soltar una tecla pulsada 							Elementos de formulario y <body>
+onload 			La página se ha cargado completamente 				<body>
+onmousedown 	Pulsar (sin soltar) un botón del ratón 				Todos los elementos
+onmousemove 	Mover el ratón 										Todos los elementos
+onmouseout 		El ratón "sale" del elemento 					 	Todos los elementos
+onmouseover 	El ratón "entra" en el elemento 				 	Todos los elementos
+onmouseup 		Soltar el botón que estaba pulsado en el ratón 		Todos los elementos
+onreset 		Inicializar el formulario (borrar todos sus datos) 	<form>
+onresize 		Se ha modificado el tamaño de la ventana del navegador 	<body>
+onselect 		Seleccionar un texto 								<input>, <textarea>
+onsubmit 		Enviar el formulario 								<form>
+onunload 		Se abandona la página 								<body>
+
+****************************************************************************************************************************
+CSS:
+Algunos cursos gratuitos: http://www.codecademy.com , https://www.codeschool.com/
+	propiedades:color : 	rgb(x,y,z)
+							rgba(x,y,z,0TransparenteA1Solido)  //buscar en paleta de colores, hexadecimal,porcentaje o 0-255
+				tamaño:  
+					width,height : px(pixes), %(relativo, recomendado)
+				texto:
+					font-family: serif, sans-serif, monospace, cursive, fantasy http://devdocs.io/css/font-family
+						<link href='enclace del fuente de tipo de letra' rel='stylesheet' type'text/css'>
+					font-weight: bold
+					font-size : pt(absoluto),em(relativo)
+					line-height: xpt
+					text-align: center, left, right	
+					text-decoration
+					text-shadow
+					text-transform
+					letter-spacing
+					word-spacing
+				padding: padding-top, padding-right, padding-bottom, padding-left, padding: 1px 2px 3px 4px,	padding: 1px	
+				Border: ancho(px,em) estilo(none,hidden,solid..) color
+					border-color, border-width, border-radius(redondeados), border-style,
+				margin: auto, margin-top, margin-right, margin-bottom, margin-left, margin: 1px 2px 3px 4px o uno para todo: margin: 1px
+				display: block(No permite otros elementos en la misma línea), inline-block, inline(NO se puede cambiar su alto y ancho), none(oculto)
+				position: static, relative y absolute y fixed(anclado) (top, bottom, left y/o right), float: left,right 
+						relative + absolute : se toma el objeto relativo como referencia
+				clear:left, right, both permite colocar un elemento debajo del anterior elemento con float
+				Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+					flex-direction
+					flex-grow
+					flex-wrap
+					align-items: flex-start, flex-end, center, stretch(ocupa todo), baseline
+				backgroud: http://devdocs.io/css/background
+				algunas librerias: 	http://getbootstrap.com/   :<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+									//requiere JQuery			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+																<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+										cuadricula(grid):   <div class="container"> //class="container" : fixed width class="container-fluid" : full width
+																											center your site’s contents and help align your grid content.
+																...
+																<div class="row">
+																	<div class="col-clases-tamaño"> //only columns may be immediate children of rows.
+																									//fluid and sized relative to their parent element.
+																									//si el tamaño es mayor->al siguiente linea el objeto
+																									//<div class="col-md-x...">.col-md-x</div> //x del 12
+																		...
+																	</div>
+																	...
+																</div>
+																...
+															</div>
+															
+											clase->	xs: para teléfonos, extra small; 
+													sm: para tabletas, small; 
+													md: para escritorios, medium; 
+													lg: para escritorios grandes, large;
+													xl: escritorios muy grandes
+											Mixins: Mixins are used in conjunction with the grid variables to generate semantic CSS for individual grid columns.
+												//Muy complicado. @...
+										Textos: class="jumbotron", page-header	
+												mark, abbr, blockquote, footer
+												text-* (muted,primary,success,info) y bg-*(primary,sucess,danger,info,warning)
+												<kbd>un boton</kbd> y <pre>el texto cuenta los espacios</pre>
+										class table: <table	class="table"> thead, tr(color: success, danger, info), td, tbody; table-condensed
+												table-striped: estilo cebra(fila una blanca una gris); table-bordered; table-hover
+										multimedia: img-rounded; img-circle; img-thumbnail(miniatura); img-responsive(adaptable)
+										botones: btn, btn-default, btn-primary, btn-success, btn-info,btn-warning, btn-danger, btn-link	
+												tamaño: btn-lg, btn-md, btn-sm, btn-xs, btn-block; active, disabled; 
+												<div class="btn-group o btn-group-vertical">los botones</div>; btn-group-lg y btn-group-xs
+												animados: dropdown-toggle y dropdown
+												<span class="badge">7</span> // poner un 7 al final del texto de boton
+										iconos: insertar en ...: class ="glyphicon  glyphicon-*": envelope,search,default,print...
+										clases progress y progress-bar-* en elementos <div>	
+											color: sucess, info,..., striped
+										paginacioón: pagination, active, disabled (una lista), pager, previous, next
+										list-group y list-group-item aplicado a div y a; list-group-item-*
+										nevegacion: nav-header: titulo
+											pestañas: class="nav nav-tabs", dropdown , dropdown-toggle, dropdownmenu
+											horizontal: navbar, navbar-inverse, navbar-brand
+											vertical: <ul class="nav nav-pills nav-stacked"
+											breadcrumb: con una /
+										Formulario: Horizontal(form-horizontal, izquierda labels,derecha inputs), vertical(por defecto), en linea (form-inline)
+											<form role="form" class="...">
+												<div class="form-group">
+													//1 dato a rellenar del formulario
+													//class="form-control" en los inputs de datos a rellenar
+												</div>
+												...
+												<button type="submit" class="btn btn-default">Submit</button>
+											</form>	
+											
+									http://semantic-ui.com/
+									http://foundation.zurb.com/
+	etiqueta{
+	}
+	etiqueta : evento{ //pseudo-clases
+		//nuevo estilo al ocurrir ese evento 
+	}
+	eventos:	https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+				hover: cuando el usuario pasa encima de ellos con el ratón
+				link: enlace no visitado
+				visited: enlace visitado
+				nth-child(n): Hijo n
+				first-child : primer hijo	
+	.class{
+	}
+	.class etiqueta{
+		//se aplicará el estilo a los etiquetas que esta dentro de ese clase
+	}
+	.class .class etiqueta{
+	}
+	.class : evento{
+	}
+	#id{
+	}
+	*{
+		//culquier elemento
+	}
+	.......
+	@keyframes{
+		from...
+		to...
+		//o 0%{},...,100%{}
+	}
+	//Se define las animaciones nuevas de las etiquetas que quiere
+	@-moz-keyframes...
+	@
+	x% : lo que ocurre en la instancia x% de la animación
+	Las subpropiedades de animation son:	
+		animation-delay
+			Tiempo de retardo entre el momento en que el elemento se carga y el comienzo de la secuencia de la animación.
+		animation-direction
+			Indica si la animación debe retroceder hasta el fotograma de inicio al finalizar la secuencia o si debe comenzar 
+			desde el principio al llegar al final.
+		animation-duration
+			Indica la cantidad de tiempo que la animación consume en completar su ciclo (duración).
+		animation-iteration-count
+			El número de veces que se repite. Podemos indicar infinite para repetir la animación indefinidamente.
+		animation-name
+			Especifica el nombre de la regla @keyframes que describe los fotogramas de la animación.
+		animation-play-state
+			Permite pausar y reanudar la secuencia de la animación
+		animation-timing-function
+			Indica el ritmo de la animación, es decir, como se muestran los fotogramas de la animación, estableciendo curvas de 
+			aceleración.
+		animation-fill-mode
+			Especifica qué valores tendrán las propiedades después de finalizar la animación (los de antes de ejecutarla, los del 
+			último fotograma de la animación o ambos). 
+			
+	Las subpropiedades de transition son:		
+		transition: width 2s, height 2s, transform 2s;
+		transition-timing-function: specifies the speed curve of the transition effect, can have the following values:
+			ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
+			linear - specifies a transition effect with the same speed from start to end
+			ease-in - specifies a transition effect with a slow start
+			ease-out - specifies a transition effect with a slow end
+			ease-in-out - specifies a transition effect with a slow start and end
+			cubic-bezier(n,n,n,n) - lets you define your own values in a cubic-bezier function
+		transition-delay: specifies a delay (in seconds(xs)) for the transition effect.	
+		transition:	A shorthand property for setting the four transition properties into a single property
+		transition-delay: 	Specifies a delay (in seconds) for the transition effect
+		transition-duration: 	Specifies how many seconds or milliseconds a transition effect takes to complete
+		transition-property: 	Specifies the name of the CSS property the transition effect is for	
+									
+				
+				

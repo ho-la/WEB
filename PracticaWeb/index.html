@@ -27,45 +27,6 @@
     -->
 	<section>
         <article>
-            <!--
-            <div class="container">
-                <p>Lista de notas de los alumnos</p>
-                <div class="row">
-                    <div class="col-md-3">
-                        <P>Nombre del alumno</P>
-                    </div>
-                    <div class="col-md-2">
-                        <P>Nota del alumno</P>
-                    </div>
-                    <div class="col-md-4">
-                        <P>Descripcion de la nota</P>
-                    </div>
-                    <div class="col-md-2">
-                        <P>Fecha de la nota</P>
-                    </div>
-                    <div class="col-md-1">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-
-                    </div>
-                    <div class="col-md-2">
-
-                    </div>
-                    <div class="col-md-4">
-
-                    </div>
-                    <div class="col-md-2">
-
-                    </div>
-                    <div class="col-md-1">
-                        <input type="button" value="Editar" class="btn-info">
-                        <input type="button" value="Borrar" class="btn-danger">
-                    </div>
-                </div>
-            </div>
-            -->
             <table class="table table-striped">
                 <p>Lista de notas de los alumnos</p>
                 <thead>
@@ -97,14 +58,38 @@
         <h3>Cabecera del Popup</h3>
       </div>
       <div class="modal-body">
-        <p>Nombre del alumno</p>
-        <input type="text">
-        <p>Nota del alumno</p>
-        <input type="number">  
-        <p>Descripcion de la nota</p>
-        <input type="text">  
-        <p>Fecha de la nota</p>
-        <input type="date">  
+      	 <form id="loginForm" method="post" class="form-horizontal">
+               <div class="form-group">
+                   <label class="col-xs-3 control-label">Nombre del alumno</label>
+                   <div class="col-xs-5">
+                       <input type="text" class="form-control" name="username" />
+                   </div>
+               </div>
+               <div class="form-group">
+                   <label class="col-xs-3 control-label">Nota del alumno</label>
+                   <div class="col-xs-5">
+                       <input type="number" class="form-control" name="password" />
+                   </div>
+               </div>
+               <div class="form-group">
+                   <label class="col-xs-3 control-label">Descripcion de la nota</label>
+                   <div class="col-xs-5">
+                       <input type="text" class="form-control" name="password" />
+                   </div>
+               </div>
+               <div class="form-group">
+                   <label class="col-xs-3 control-label">Fecha de la nota</label>
+                   <div class="col-xs-5">
+                       <input type="date" class="form-control" name="password" />
+                   </div>
+               </div>
+               <div class="form-group">
+                   <div class="col-xs-5 col-xs-offset-3">
+                       <button type="submit" class="btn btn-primary">Login</button>
+                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                   </div>
+               </div>
+           </form>
       </div>
       <div class="modal-footer">
         <a href="#" class="btn btn-danger" data-dismiss="modal">Cerrar</a>
