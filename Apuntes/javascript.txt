@@ -58,7 +58,7 @@ Common HTML Events:
 number:.toExponential(dec) .toFixed(dec) .toPrecision(numDigitos) .valueOf();
 Math: .PI .round(n)	.pow(8, 2);//8^2 .sqrt(64); .abs(-4.7); .ceil(4.4);//5 .floor(4.7);//4 .random();
 	Math.floor(Math.random() * 100) + 1; // returns a number between 1 and 100 
-
+------------------------------------------------------------------------------------------------------------------------------
 Date();	
 	A JavaScript date can be written as a string: Thu May 18 2017 10:36:36 GMT+0200
 	or as a number: 1495096596649
@@ -81,6 +81,8 @@ Date();
 	getUTC/setgetSeconds() 		Get the seconds (0-59)
 	getUTC/set/getTime() 			Get the time (milliseconds since January 1, 1970)
 	.Date.parse() convertir string en milisegundos
+	
+------------------------------------------------------------------------------------------------------------------------------
 Array:
 ****Property********Description********************************************************
 	constructor 	Returns the function that created the Array object's prototype
@@ -114,7 +116,7 @@ Array:
 	toString() 		Converts an array to a string, and returns the result
 	unshift() 		Adds new elements to the beginning of an array, and returns the new length
 	valueOf() 		Returns the primitive value of an array
-
+------------------------------------------------------------------------------------------------------------------------------
 list: {
     ...
 	list2:{
@@ -136,28 +138,177 @@ if(x == "") throw "is empty";
 	Deleting an undeletable property is not allowed:
 	The with statement is not allowed:
 	
-getElementById().
-This example uses the method to "find" an HTML element with his id
-	Changes the element content (innerHTML) to "Hello JavaScript":
-		document.getElementById("demo").innerHTML = "Hello JavaScript"; 
-	Changes the src (source) attribute of an image:
-		document.getElementById('myImage').src='pic_bulbon.gif'
-	Changing the style of an HTML element:
-		document.getElementById("demo").style
-			.fontSize = "25px";
-			.display = "none"; //.display = "block";
+<script> //JSON
+var text = '{"employees":[' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]}';
+...
+obj = JSON.parse(text);
+document.getElementById("demo").innerHTML =
+obj.employees[1].firstName + " " + obj.employees[1].lastName;
+</script>
+
+document.forms["myForm"]["nameOfAInputInform"].value;
+
+var inpObj = document.getElementById("id1");
+if (inpObj.checkValidity() == false) {
+	document.getElementById("demo").innerHTML = inpObj.validationMessage;
+}
+	validity 			Contains boolean properties related to the validity of an input element.
+	validationMessage 	Contains the message a browser will display when the validity is false.
+	willValidate 		Indicates if an input element will be validated.
+	Property 			Description
+	customError 		Set to true, if a custom validity message is set.
+	patternMismatch 	Set to true, if an element's value does not match its pattern attribute.
+	rangeOverflow 		Set to true, if an element's value is greater than its max attribute.
+	rangeUnderflow 		Set to true, if an element's value is less than its min attribute.
+	stepMismatch 		Set to true, if an element's value is invalid per its step attribute.
+	tooLong 			Set to true, if an element's value exceeds its maxLength attribute.
+	typeMismatch 		Set to true, if an element's value is invalid per its type attribute.
+	valueMissing 		Set to true, if an element (with a required attribute) has no value.
+	valid 				Set to true, if an element's value is valid.
+	<input id="id1" type="number" max/min="100"> .validity.rangeOverflow .rangeUnderflow //Esta encima/por debajo del max/min
+------------------------------------------------------------------------------------------------------------------------------
+Object:
+	Booleans, Numbers, Strings can be objects (if defined with the new keyword)
+	Dates, Maths, regularExp, array, functions, objects are always objects
+	objectName.property, objectName["property"], objectName[expression] 
+	var person = {fname:"John", lname:"Doe", age:25,
+		fullName : function() {
+			return this.firstName + " " + this.lastName;
+		}
+	};
+	for (x in person) {
+		txt += person[x];//John Doe 25
+	} 	
+	add new properties: person.nationality = "English";  
+		Will only add to person object, to add properties to a propotype we need to change the constructor or Person.prototype.nationality = "English";
+		*Only modify your own prototypes. Never modify the prototypes of standard JavaScript objects.
+	deletes a property: delete person.age; does not delete inherited properties,
+	objectName.function without (), it will return the function definition
+	Prototype: The standard way to create an object prototype is to use an object constructor function: 
+		function Person(first, last, age, eyecolor) {this.f=first ...}
+------------------------------------------------------------------------------------------------------------------------------
+Functions:
+	var myFunction = new Function("a", "b", "return a * b"); o como siempre function (a, b) {return a * b};	
+	(function () {
+		var x = "Hello!!";      // I will invoke myself
+	})(); //anonymous self-invoking function (function without name).
+	The arguments.length property returns the number of arguments received when the function was invoked
+	JavaScript function definitions do not specify data types for parameters.
+	JavaScript functions do not perform type checking on the passed arguments.
+	JavaScript functions do not check the number of arguments received.  
+		the missing values(less than declared) are set to: undefined
+		if is more theses can be reached(alcanzar) using the arguments object. arguments[i]
+	The function above automatically becomes a window function. myFunction() and window.myFunction() is the same function:
+	With call() or apply() you can set the value of this, and invoke a function as a new method of an existing object.
+		myObject = myFunction.call(myObject, 10, 2);
+		myArray = [10, 2]; myObject = myFunction.apply(myObject, myArray);  
+	Se puede hacer funciones anidadas(Nested) para tener una variable "global" 
+	var add = (function () {
+		var counter = 0;
+		return function () {return counter += 1;}
+	})();
+	add();
+	add();
+	add(); //counter=3 y es privado
+------------------------------------------------------------------------------------------------------------------------------
+JavaScript HTML DOM: The DOM is a W3C (World Wide Web Consortium) standard.  
+	The HTML DOM is a standard for how to get, change, add, or delete HTML elements.
+	document.getElementById(id) 	Find an element by element id
+	document.getElementsByTagName(name) 	Find elements by tag name
+	document.getElementsByClassName(name) 	Find elements by class name //does not work in Internet Explorer 8 and earlier versions.
+	
+	Method 									Description
+	element.innerHTML =  new html content 	Change the inner HTML of an element
+	element.attribute = new value 			Change the attribute value of an HTML element 
+		.src ...; .style.property->color,width, lenght, backgroud, position... 
+	element.setAttribute(attribute, value) 	Change the attribute value of an HTML element
+	element.style.property = new style 		Change the style of an HTML element
+	
+	Method 									Description
+	document.createElement(element) 		Create an HTML element
+	document.removeChild(element) 			Remove an HTML element
+	document.appendChild(element) 			Add an HTML element
+	document.replaceChild(element) 			Replace an HTML element
+	document.write(text) 					Write into the HTML output stream
+	
+	document.getElementById(id).onclick = function(){code}
+	
+	Property 					Description 											DOM
+	document.anchors 			Returns all <a> elements that have a name attribute 	1
+	document.applets 			Returns all <applet> elements (Deprecated in HTML5) 	1
+	document.baseURI 			Returns the absolute base URI of the document 			3
+	document.body 				Returns the <body> element 								1
+	document.cookie 			Returns the document's cookie 							1
+	document.doctype 			Returns the document's doctype 							3
+	document.documentElement 	Returns the <html> element 								3
+	document.documentMode 		Returns the mode used by the browser 					3
+	document.documentURI 		Returns the URI of the document 						3
+	document.domain 			Returns the domain name of the document server 			1
+	document.domConfig 			Obsolete. Returns the DOM configuration 				3
+	document.embeds 			Returns all <embed> elements 							3
+	document.forms 				Returns all <form> elements 							1
+	document.head 				Returns the <head> element 								3
+	document.images 			Returns all <img> elements 								1
+	document.implementation 	Returns the DOM implementation 							3
+	document.inputEncoding 		Returns the document's encoding (character set) 		3
+	document.lastModified 		Returns the date and time the document was updated 		3
+	document.links 				Returns all <area> and <a> elements that have a href attribute 	1
+	document.readyState 		Returns the (loading) status of the document 			3
+	document.referrer 			Returns the URI of the referrer (the linking document) 	1
+	document.scripts 			Returns all <script> elements 							3
+	document.strictErrorChecking 	Returns if error checking is enforced 				3
+	document.title 				Returns the <title> element 							1
+	document.URL 				Returns the complete URL of the document 				1
+
+	This example finds the element with id="main", and then finds all <p> elements inside "main":
+		var x = document.getElementById("main");
+		var y = x.getElementsByTagName("p");
+	This example returns a list of all <p> elements with class="intro".
+		var x = document.querySelectorAll("p.intro"); 	
+	var x = document.forms["frm1"]; //A form with id frm1
+	***Animación***
+		var id = setInterval(frame, 5); //frame is a function and 5 the time to repeat
+		clearInterval(id); //To stop
+	***Events***
+		element.addEventListener(event, function, useCapture); 
+		//useCapture(optional):Bubbling(false,default) or Capturing(true): 
+			In bubbling the inner most element's event is handled first and then the outer, Capturing al réves.
+		//*you don't use the "on" prefix for the event; use "click" instead of "onclick".
+		mouseover, mouseout, mousemove
+	***Navigation***		
+		.parentNode
+		.childNodes[nodenumber] //It is not an array! you cannot use Array Methods, like valueOf() or join() on the node list.
+		.firstChild
+		.lastChild
+		.nextSibling
+		.previousSibling
+	***Creación***
+		var para = document.createElement("p");
+		var node = document.createTextNode("This is new.");
+		para.appendChild(node);//<p>This is new.</p>
+		parent.insertBefore(child, sibling)
+		parent.appendChild(child);
+		parent.removeChild(child); //But because of poor browser support, you should not use it. implemented in the DOM 4 specification.
+		parent.replaceChild(newChild, oldChild);
 	
 
-
-	document.write(): se eliminará todo html anterior
-	window.alert("algo"): salta una ventana 
-	console.log(algo); For debugging purposes: par fines de depuración
 	
-	
-	
+var x = 0.1;
+var y = 0.2;
+var z = x + y            // the result in z will not be 0.3 because are floats
+var z = (x * 10 + y * 10) / 10;       // z will be 0.3 	
+It is a default JavaScript behavior to close a statement automatically at the end of a line.
 NaN - Not a Number	 var x = 100 / "10";     // x will be 10 
 objects cannot be compared 	
 number: Infinity (or -Infinity) is the value JavaScript will return if you calculate a number outside the largest possible number.	
 Accessing a function without () will return the function definition instead of(en vez de) the function result
 If you re-declare a JavaScript variable, it will not lose its value.	
 Hyphens(guiones) are not allowed in JavaScript.	It is reserved for subtractions
+Reduce DOM Access: obj = document.getElementById("demo"); y usar obj 
+Variables created without the keyword var, are always global, even if they are created inside a function.
+
+
+
