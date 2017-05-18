@@ -1,1 +1,163 @@
-JAVASCRIPT
+<script src="myScript.js"></script>  //script en la misma carpeta
+
+Keyword 		Description
+break 			Terminates a switch or a loop
+continue 		Jumps out of a loop and starts at the top
+debugger 		Stops the execution of JavaScript, and calls (if available) the debugging function
+do ... while 	Executes a block of statements, and repeats the block, while a condition is true
+for 			Marks a block of statements to be executed, as long as a condition is true
+function 		Declares a function
+if ... else 	Marks a block of statements to be executed, depending on a condition
+return 			Exits a function
+switch 			Marks a block of statements to be executed, depending on different cases
+try ... catch 	Implements error handling to a block of statements
+var 			Declares a variable
+
++ 	Addition;- 	Subtraction;* 	Multiplication;/ 	Division;% 	Modulus;++ 	Increment; -- 	Decrement
+** 	Exponentiation
+
+== 	equal to
+=== 	equal value and equal type
+!= 	not equal
+!== 	not equal value or not equal type
+> 	greater than
+< 	less than
+>= 	greater than or equal to
+<= 	less than or equal to
+? 	ternary operator
+Bitwise Operators:
+Operator 	Description 			Example 	Same as 		Result 	Decimal
+& 			AND 					5 & 1 		0101 & 0001 	0001 	 1
+| 			OR 						5 | 1 		0101 | 0001 	0101 	 5
+~ 			NOT 					~ 5 	 	~0101 			1010 	 10
+^ 			XOR 					5 ^ 1 		0101 ^ 0001 	0100 	 4
+<< 			Zero fill left shift 	5 << 1 		0101 << 1 		1010 	 10
+>> 			Signed right shift 		5 >> 1 		0101 >> 1 		0010 	  2
+>>> 		Zero fill right shift 	5 >>> 1 	0101 >>> 1 		0010 	  2
+typeof 	Returns the type of a variable
+instanceof 	Returns true if an object is an instance of an object type
+var y = 123e5;      // 12300000
+Array: var cars = ["Saab", "Volvo", "BMW"];
+Object: var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+	para acceder: objectName.propertyName or objectName["propertyName"]
+
+typeof [1,2,3,4]             // Returns "object" (not "array")
+typeof {name:'John', age:34} // Returns "object"
+typeof function myFunc(){}   // Returns "function" 
+	undefined, null, 
+
+Common HTML Events:
+	Event 			Description
+	onchange 		An HTML element has been changed
+	onclick 		The user clicks an HTML element
+	onmouseover 	The user moves the mouse over an HTML element
+	onmouseout 		The user moves the mouse away from an HTML element
+	onkeydown 		The user pushes a keyboard key
+	onload 			The browser has finished loading the page
+
+number:.toExponential(dec) .toFixed(dec) .toPrecision(numDigitos) .valueOf();
+Math: .PI .round(n)	.pow(8, 2);//8^2 .sqrt(64); .abs(-4.7); .ceil(4.4);//5 .floor(4.7);//4 .random();
+	Math.floor(Math.random() * 100) + 1; // returns a number between 1 and 100 
+
+Date();	
+	A JavaScript date can be written as a string: Thu May 18 2017 10:36:36 GMT+0200
+	or as a number: 1495096596649
+	new Date()
+	new Date(milliseconds) //01 January 1970 00:00:00 UTC + The number is specified in milliseconds
+	new Date(dateString) //"October 13, 2014 11:13:00" 
+		ISO Date 	"2015" (The International Standard) "2015-03-25T12:00:00Z" con el mes dia y hora "...-06:30" en vez de z
+		Short Date 	"03/25/2015"
+		Long Date 	"Mar 25 2015" or "25 Mar 2015"
+		Full Date 	"Wednesday March 25 2015"
+	new Date(year, month(0-11), day, hours, minutes, seconds, milliseconds)
+	.toUTCString(); .toDateString(); .toString();
+	getUTC/set/getDate() 			Get the day as a number (1-31)
+	getUTC/getDay() 			Get the weekday as a number (0-6)
+	getUTC/set/getFullYear() 		Get the four digit year (yyyy)
+	getUTC/set/getHours() 			Get the hour (0-23)
+	getUTC/set/getMilliseconds() 	Get the milliseconds (0-999)
+	getUTC/set/getMinutes() 		Get the minutes (0-59)
+	getUTC/set/getMonth() 			Get the month (0-11)
+	getUTC/setgetSeconds() 		Get the seconds (0-59)
+	getUTC/set/getTime() 			Get the time (milliseconds since January 1, 1970)
+	.Date.parse() convertir string en milisegundos
+Array:
+****Property********Description********************************************************
+	constructor 	Returns the function that created the Array object's prototype
+	length 			Sets or returns the number of elements in an array
+	prototype 		Allows you to add properties and methods to an Array object	
+	
+****Method**********Description********************************************************
+	concat(arrays) 	Joins two or more arrays, and returns a copy of the joined arrays
+	copyWithin() 	Copies array elements within the array, to and from specified positions
+	every() 		Checks if every element in an array pass a test
+	fill() 			Fill the elements in an array with a static value
+	filter() 		Creates a new array with every element in an array that pass a test
+	find() 			Returns the value of the first element in an array that pass a test
+	findIndex() 	Returns the index of the first element in an array that pass a test
+	forEach() 		Calls a function for each array element
+	indexOf() 		Search the array for an element and returns its position
+	isArray() 		Checks whether an object is an array
+	join(String) 	Joins all elements of an array into a string
+	lastIndexOf() 	Search the array for an element, starting at the end, and returns its position
+	map() 			Creates a new array with the result of calling a function for each array element
+	pop() 			Removes the last element of an array, and returns that element
+	push(e) 		Adds new elements to the end of an array, and returns the new length
+	reduce() 		Reduce the values of an array to a single value (going left-to-right)
+	reduceRight() 	Reduce the values of an array to a single value (going right-to-left)
+	reverse() 		Reverses the order of the elements in an array
+	shift() 		Removes the first element of an array, and returns that element
+	slice(ini,fin) 	Selects a part of an array, and returns the new array. ini no incluido
+	some() 			Checks if any of the elements in an array pass a test
+	sort() 			Sorts the elements of an array as string, for numbers: .sort(function(a, b){return a - b})//<0 =0 >0
+	splice() 		Adds/Removes elements from an array (2(ini), 0(remove 0 elements), "e1ToAdd", "e2",...);/(0, 1); 
+	toString() 		Converts an array to a string, and returns the result
+	unshift() 		Adds new elements to the beginning of an array, and returns the new length
+	valueOf() 		Returns the primitive value of an array
+
+list: {
+    ...
+	list2:{
+	...	
+    break listx;
+	}	
+	...
+}	
+if(x == "") throw "is empty";
+
+"use strict"; // La directiva "use strict" sólo se reconoce al principio de un script o una función.
+...//no se puede usar variables sin declarar ni borrar variables/objetos: delete x;
+	Deleting a function is not allowed.
+	Duplicating a parameter name is not allowed:
+	Octal numeric literals are not allowed:
+	Escape characters are not allowed:
+	Writing to a read-only property is not allowed:
+	Writing to a get-only property is not allowed:
+	Deleting an undeletable property is not allowed:
+	The with statement is not allowed:
+	
+getElementById().
+This example uses the method to "find" an HTML element with his id
+	Changes the element content (innerHTML) to "Hello JavaScript":
+		document.getElementById("demo").innerHTML = "Hello JavaScript"; 
+	Changes the src (source) attribute of an image:
+		document.getElementById('myImage').src='pic_bulbon.gif'
+	Changing the style of an HTML element:
+		document.getElementById("demo").style
+			.fontSize = "25px";
+			.display = "none"; //.display = "block";
+	
+
+
+	document.write(): se eliminará todo html anterior
+	window.alert("algo"): salta una ventana 
+	console.log(algo); For debugging purposes: par fines de depuración
+	
+	
+	
+NaN - Not a Number	 var x = 100 / "10";     // x will be 10 
+objects cannot be compared 	
+number: Infinity (or -Infinity) is the value JavaScript will return if you calculate a number outside the largest possible number.	
+Accessing a function without () will return the function definition instead of(en vez de) the function result
+If you re-declare a JavaScript variable, it will not lose its value.	
+Hyphens(guiones) are not allowed in JavaScript.	It is reserved for subtractions
