@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"></p>
+<p id="demo2"></p>
+<script>
+document.getElementById("demo2").innerHTML = 
+"Available screen width is " + screen.availWidth;
+</script>
+
+<p> Demo window: </p>
+<p id="demoWindow"></p>
+<input type="button" value="window.location.assign" onclick="newDoc()"><br>
+<input type="button" value="Back" onclick="goBack()"><br>
+<input type="button" value="Forward" onclick="goForward()"><br>
+<button onclick="myFunction()">Try confirm button</button><br>
+<button onclick="myFunction2()">Try prompt(recoge lo que escribes) button</button><br>
+<button onclick="setTimeout(alertRetardado, 3000);">Alert retardado</button><br>
+<script>
+document.getElementById("demoWindow").innerHTML =
+"The full URL of this page is:" + window.location.href+".<br>"
++"Page hostname is: " + window.location.hostname + ".<br>"
++"Page path is: " + window.location.pathname+".<br>"
++"The page protocol is: " + window.location.protocol+".<br>"
++"Port number is: " + window.location.port+".<br>"
++"cookiesEnabled is: " + navigator.cookieEnabled+".<br>"
++"navigator.appName is: " + navigator.appName+".<br>"
++"navigator.appCodeName is: " + navigator.appCodeName+".<br>"
++"navigator.product is " + navigator.product+".<br>"
++"navigator.appVersion is: " + navigator.appVersion+".<br>"
++"navigator.language is: " + navigator.language+ ".<br>"
++"navigator.onLine is:" + navigator.onLine + ".<br>"
++"navigator.javaEnabled() is:" + navigator.javaEnabled();
+
+function alertRetardado() {
+    alert('Hello');
+}
+function myFunction2() {
+    var txt;
+    var person = prompt("Please enter your name:", "Harry Potter");
+    if (person == null || person == "") {
+        txt = "User cancelled the prompt.";
+    } else {
+        txt = "Hello " + person + "! How are you today?";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}
+function myFunction() {
+    var txt;
+    if (confirm("Press a button!") == true) {
+        txt = "You pressed OK!";
+    } else {
+        txt = "You pressed Cancel!";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}
+function newDoc() {
+    window.location.assign("https://www.w3schools.com")
+}
+function goBack() {
+    window.history.back()
+}
+function goForward() {
+    window.history.forward()
+}
+</script>
+
+</body>
+</html>
