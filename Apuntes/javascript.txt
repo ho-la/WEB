@@ -361,33 +361,47 @@ AJAX: Asynchronous JavaScript And XML.
 		Method 									Description
 		new XMLHttpRequest() 					Creates a new XMLHttpRequest object
 		abort() 								Cancels the current request
-		getAllResponseHeaders() 				Returns header information
-		getResponseHeader() 					Returns specific header information
+		setRequestHeader() 						Adds a label/value pair to the header to be sent
+		
+		Property 								Description
+	Server:
 		open(method, url, async, user, psw) 	Specifies the request: 	method: the request type GET or POST
 																		url: the file location
 																		async: true (asynchronous) or false (synchronous)
 																		user: optional user name
 																		psw: optional password
-		send() 									Sends the request to the server. Used for GET requests
-		send(string) 							Sends the request to the server. Used for POST requests
-		setRequestHeader() 						Adds a label/value pair to the header to be sent
-		
-		Property 								Description
-		onreadystatechange 						Defines a function to be called when the readyState property changes
-		readyState 								Holds the status of the XMLHttpRequest.
-													0: request not initialized
-													1: server connection established
-													2: request received
-													3: processing request
-													4: request finished and response is ready
-		responseText 							Returns the response data as a string
-		responseXML 							Returns the response data as XML data
-		status 									Returns the status-number of a request
-													200: "OK"
-													403: "Forbidden"
-													404: "Not Found"...
-		statusText 								Returns the status-text (e.g. "OK" or "Not Found")
-		
+		send() 						Sends the request to the server (used for GET)
+		send(string) 				Sends the request to the server (used for POST)
+		GET is simpler and faster than POST, but always use POST requests when:
+			A cached file is not an option (update a file or database on the server).
+			Sending a large amount of data to the server (POST has no size limitations).
+			Sending user input (which can contain unknown characters), POST is more robust and secure than GET.
+		getResponseHeader() 		Returns specific header information from the server resource
+		getAllResponseHeaders() 	Returns all the header information from the server resource	
+		Property 				Description
+		onreadystatechange 		Defines a function to be called when the readyState property changes
+		readyState 				Holds the status of the XMLHttpRequest.
+									0: request not initialized
+									1: server connection established
+									2: request received
+									3: processing request
+									4: request finished and response is ready
+		status 					200: "OK"
+								403: "Forbidden"
+								404: "Page not found"
+		statusText 				Returns the status-text (e.g. "OK" or "Not Found")
+		responseText 			Returns the response data as a string
+		responseXML 			Returns the response data as XML data
+			XML: <tabla><columna1><fila1>valor</fila1>...</filaN>...	
+------------------------------------------------------------------------------------------------------------------------------
+JSON:  JavaScript Object Notation. { obj1:[{x:x}...] }
+	For AJAX applications, JSON is faster and easier than XML
+	obj = JSON.parse(text);
+	myObj.cars[0];
+	Use the JavaScript function JSON.stringify() to convert it into a string.
+	var arr = [ "John", "Peter", "Sally", "Jane" ]; var myJSON = JSON.stringify(arr); ["John","Peter","Sally","Jane"]
+	
+	
 ------------------------------------------------------------------------------------------------------------------------------	
 var x = 0.1;
 var y = 0.2;
