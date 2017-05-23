@@ -1,25 +1,59 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-<div id="demo">
-<h2>The XMLHttpRequest Object</h2>
-<button type="button" onclick="loadDoc()">Change Content</button>
-</div>
-
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML =
-      this.responseText;
-    }
-  };
-  xhttp.open("GET", "ajax_info.txt", true);
-  xhttp.send();
+$(document).ready(function(){
+    $("p").click(function(){
+        $(this).hide();
+    });
+    $("input").focus(function(){
+        $(this).css("background-color", "#cccccc");
+    });
+    $("input").blur(function(){
+        $(this).css("background-color", "black");
+    });
+	$("button").click(function(){
+        var txt = "";
+        txt += "Width of div: " + $("#div1").width() + "</br>";
+        txt += "Height of div: " + $("#div1").height() + "</br>";
+        txt += "Inner width of div: " + $("#div1").innerWidth() + "</br>";
+        txt += "Inner height of div: " + $("#div1").innerHeight()+ "</br>";
+		txt += "Outer width of div: " + $("#div1").outerWidth() + "</br>";
+        txt += "Outer height of div: " + $("#div1").outerHeight() + "</br>";
+		txt += "Outer width (+margin): " + $("#div1").outerWidth(true) + "</br>";
+		txt += "Outer height (+margin): " + $("#div1").outerHeight(true);
+        $("#div1").html(txt);
+    });
+});
+function appendText() {
+    var txt1 = "<p>Text.</p>";              // Create text with HTML
+    var txt2 = $("<p></p>").text("Text.");  // Create text with jQuery
+    var txt3 = document.createElement("p");
+    txt3.innerHTML = "Text.";               // Create text with DOM
+    $("body").append(txt1, txt2, txt3);     // Append new elements
 }
 </script>
+<style>
+#div1 {
+    height: 100px;
+    width: 300px;
+    padding: 10px;
+    margin: 3px;
+    border: 1px solid blue;
+    background-color: lightblue;
+}
+</style>
+</head>
+<body>
 
+Name: <input type="text" name="fullname"><br>
+Email: <input type="text" name="email">
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+<div id="div1"></div>
+<button>Display dimensions of div</button>
 </body>
 </html>

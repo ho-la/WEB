@@ -1,0 +1,153 @@
+jQuery is a JavaScript Library.
+jQuery greatly simplifies JavaScript programming.
+jQuery is easy to learn.
+
+google: <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+microsoft: <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+$(selector).action()
+	$(this).hide() - hides the current element.
+	$("p").hide() - hides all <p> elements.
+	$(".test").hide() - hides all elements with class="test".
+	$("#test").hide() - hides the element with id="test".
+
+You might have noticed that all jQuery methods in our examples, are inside a document ready event:
+$(document).ready(function(){
+   // jQuery methods go here...
+});
+prevent any jQuery code from running before the document is finished loading (is ready)
+
+	$("*") 						Selects all elements
+	$("p.intro") 				Selects all <p> elements with class="intro"	
+	$("p:first") 				Selects the first <p> element
+	$("ul li:first") 			Selects the first <li> element of the first <ul>
+	$("ul li:first-child") 		Selects the first <li> element of every <ul> 	
+	$("[href]") 				Selects all elements with an href attribute 	
+	$("a[target='_blank']") 	Selects all <a> elements with a target attribute value equal to "_blank" 	
+	$("a[target!='_blank']") 	Selects all <a> elements with a target attribute value NOT equal to "_blank" 	
+	$(":button") 				Selects all <button> elements and <input> elements of type="button" 	
+	$("tr:even") //impares		Selects all even <tr> elements 	
+	$("tr:odd") //Pares			Selects all odd <tr> elements
+	
+"Global events":
+	$(document).ready()
+	$(selector).css("background-color", "#ffffff");
+Mouse Events 	
+	click() 		
+	dblclick() 		 			 			
+	mouseenter() 	 				 			
+	mouseleave()  	
+	mousedown()
+	mouseup()
+	hover(f1...,f2...) :combination of the mouseenter() and mouseleave() methods
+	on({mouseenter:f1..., mouseleave:f2...}) :Attach multiple event handlers
+Keyboard Events
+	keypress()
+	keydown()
+	keyup()						
+Form Events
+	submit() 
+	change() 
+	focus()(selecciona)
+	blur()(deja de seleccionar)	
+Document/Window Events
+	load() 
+	resize()
+	scroll()
+	unload()
+	hide(speed,callback) speed: "slow", "fast", or milliseconds.
+	show(speed,callback) callback:a function to be executed after the hide() or show() method completes 
+	toggle(speed,callback) : Shown elements are hidden and hidden elements are shown
+	
+	fadeIn(speed,callback); :fade in(mostrar) a hidden element
+	fadeOut(speed,callback);:fade out(desaparecer) a visible element
+	fadeToggle(speed,callback); 
+	fadeTo(speed,opacity,callback); :fade to a given opacity 0-1
+
+	slideDown(speed,callback);	mostrar
+	slideUp(speed,callback);	ocultar
+	slideToggle(speed,callback);
+	
+	animate({params},speed,callback);
+		params:	{left: '250px', opacity: '0.5', height: '150px', width: '150px',...}		
+		You will need to write paddingLeft instead of padding-left, marginRight instead of margin-right, and so on. 	
+		If you want to animate color, you need to download the Color Animations plugin from jQuery.com.	
+	
+	stop() method is used to stop an animation or effect before it is finished.
+	stop(stopAll,goToEnd); 	stopAll: false(default): detener animación activa y no los que est en cola
+							goToEnd: false(default): realizar la animación completa
+	
+	jQuery Method Chaining: $("#p1").css("color", "red").slideUp(2000).slideDown(2000); //Se ejecuta todo en orden
+	Get:
+		.val() //get the value
+		.attr("href")
+	Set:
+		$("#test1").text("Hello world!");
+		$("#test2").html("<b>Hello world!</b>");
+		$("#test3").val("Dolly Duck");
+		$("#w3s").attr("href", "https://www.w3schools.com/jquery");
+	Add:
+		append(HTMLcode) - Inserts content at the end of the selected elements
+		prepend(HTMLcode) - Inserts content at the beginning of the selected elements
+		after(HTMLcode) - Inserts content after the selected elements
+		before(HTMLcode) - Inserts content before the selected elements
+	Remove:
+		remove(".test, .demo") - Removes the selected element (and its child elements)
+		empty() - Removes the child elements from the selected element
+
+    addClass("class") - Adds one or more classes to the selected elements
+    removeClass("class") - Removes one or more classes from the selected elements
+    toggleClass("class") - Toggles between adding/removing classes from the selected elements
+    css("propertyname") - Get the style attribute
+	css("propertyname","value"); - Set the style attribute
+	css({"propertyname":"value","propertyname":"value",...}); - multiple	
+	
+    width(), height(): Object
+    innerWidth(), innerHeight(): with padding
+    outerWidth(), outerHeight(): with border
+	outerWidth(true), outerHeight(true): with margin
+	To set the width and height only put a value(px) in the function
+	
+jQuery Traversing:	
+    parent() : returns the direct parent element of the selected element.
+    parents() : returns all ancestor elements of the selected element, until <html>
+				You can also use an optional parameter to filter the search for ancestors.
+    parentsUntil("element") : returns all ancestor elements between two given arguments.
+	
+    children() : returns all direct children of the selected element.
+				You can also use an optional parameter to filter the search for children. : $("div").children("p.first");	
+    find("element") : descendant elements of the selected element, all the way down to the last descendant.
+			$("div").find("*"); returns all descendants of <div>
+	
+    siblings("element(optional)") : returns sibling elements of the selected element.
+    next() : returns the next sibling element of the selected element.
+    nextAll() : returns all next sibling elements of the selected element.
+    nextUntil("element") : returns all next sibling elements between two given arguments.
+    prev() ,prevAll(), prevUntil("element") : they return previous sibling elements as nexts
+
+	first():  the first element of the specified elements
+	last(): returns the last element of the specified elements.
+	eq(): returns an element with a specific index number of the selected elements.
+	filter("criteria"): Elements that do not match the criteria are removed from the selection, and those that match will be returned.
+	not("criteria") : the opposite of filter().
+AJAX:
+	$(selector).load(URL,data,callback);	
+		The required URL parameter specifies the URL you wish to load.
+		The optional data parameter specifies a set of querystring key/value pairs to send along with the request.
+		The optional callback parameter is the name of a function to be executed after the load() method is completed.
+		$("#div1").load("demo_test.txt #p1");  loads the content of the element with id="p1", inside the file "demo_test.txt"
+	
+		callback function to run when the load() method is completed. The callback function can have different parameters:
+			responseTxt - contains the resulting content if the call succeeds
+			statusTxt - contains the status of the call
+			xhr - contains the XMLHttpRequest object
+			
+	$.get(URL,callback) method requests data from the server with an HTTP GET request.
+	$.post(URL,data,callback); method requests data from the server using an HTTP POST request.
+		The required URL parameter specifies the URL you wish to request.
+		The optional data parameter specifies some data to send along with the request.
+		The optional callback parameter is the name of a function to be executed if the request succeeds.
+	
+	
+
+	
