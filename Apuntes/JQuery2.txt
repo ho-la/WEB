@@ -148,6 +148,351 @@ AJAX:
 		The optional data parameter specifies some data to send along with the request.
 		The optional callback parameter is the name of a function to be executed if the request succeeds.
 	
-	
+JQuery mobile:
+	Adding jQuery Mobile to Your Web Pages:
+		jQuery Mobile CDN: (If you want to host the jQuery Mobile library yourself, you must first download it from jQuerymobile.com.)
+			 <head>
+				<!-- Include meta tag to ensure proper rendering and touch zooming -->
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<!-- Include jQuery Mobile stylesheets -->
+				<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+				<!-- Include the jQuery library -->
+				<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+				<!-- Include the jQuery Mobile library -->
+				<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+			</head> 
+	jQuery Mobile Pages:
+		The data-role="page" is the page displayed in the browser
+		The data-role="header" creates a toolbar at the top of the page (often used for title or search buttons)
+		The data-role="main" defines the content of the page, like text, images, buttons, forms, etc.
+		The data-role="footer" creates a toolbar at the bottom of the page
+		The data-role="controlgroup" with data-type="horizontal|vertical" in a container element, to specify whether to group buttons horizontally or vertically
+		In jQuery Mobile, you can create multiple pages in a single HTML file.
+		Separate each page with a unique id and use the href attribute to link between them:
+		<!-- aparecerá  una de las dos paginas escritas-->
+		<div data-role="page" id="pageone">
+		  <div data-role="main" class="ui-content">
+			<a href="#pagetwo">Go to Page Two</a>
+		  </div>
+		</div>
 
+		<div data-role="page" id="pagetwo">
+		  <div data-role="main" class="ui-content">
+			<a href="#pageone">Go to Page One</a>
+		  </div>
+		</div>
+		
+		Un "alert": <div data-role="page" data-dialog="true" id="pagetwo">
+		
+	jQuery Mobile Transition Effects:
+		jQuery Mobile has a variety of effects for how to transition from one page to the next.
+		<a href="#anylink" data-transition="slide">Slide to Page Two</a>
+		fade(parpadeo) 				Default. Fades to the next page
+		flip(Da una vuelta) 		Flips to the next page from back to front 	
+		flow(Se hace pequeño y se va) 				Throws the current page away and comes in with the next page 	
+		pop 		Goes to the next page like a popup window 	
+		slide(va a la izquierda como si estan unidos) 		Slides to the next page from right to left 	
+		slidefade(slide pero desapareciendo) 	Slides from right to left and fades in the next page 	
+		slideup(aparece por abajo y sube) 	Slides to the next page from bottom to top 	
+		slidedown 	Slides to the next page from top to bottom 	
+		turn(como pasar pagina) 		Turns to the next page 	
+		none 		No transition effect
+		data-direction="reverse" para hacer el efecto inverso.
+		
+	jQuery Mobile Buttons:
+		Using the <input> : <input type="button" value="Button">
+		Using the <button>: <button class="ui-btn">Button</button>
+		Using the <a> : <a href="#anylink" class="ui-btn">Button</a>
+		If you want a button that is only as wide as its content, or if you want two or more buttons to appear side by side, add the "ui-btn-inline" class:
+			<a href="#pagetwo" class="ui-btn ui-btn-inline">Go to Page Two</a>
+		Boton para volver atrás: <a href="#" class="ui-btn" data-rel="back">Go Back</a>
+		ui-btn-b 		Changes the color of the button to a black background with white text (default is gray background with black text). 	
+		ui-corner-all 	Adds rounded corners to the button 	
+		ui-mini 		Makes the button smaller 	
+		ui-shadow 		Adds shadows to the button
+		
+	Button Icons:
+		<a href="#anylink" class="ui-btn ui-icon-search ui-btn-icon-left">Search</a>
+		ui-icon-arrow-l 	Left Arrow 		: flecha a izquierda
+		ui-icon-arrow-r 	Right Arrow 	: flecha a derecha		
+		ui-icon-info 		Information 	: una i	
+		ui-icon-delete 		Delete 			: una x
+		ui-icon-back 		Back 			: flecha giro izquierda
+		ui-icon-audio 		Speakers 		: altavoz
+		ui-icon-lock 		Padlock 		: cerradura
+		ui-icon-search 		Search 			: lupa
+		ui-icon-alert 		Alert 			: Warning
+		ui-icon-grid 		Grid 			: 9 cuadraditos 3x3
+		ui-icon-home 		Home			: casita
+		specify one of four values for where the icon should be positioned in the button: top, right, bottom or left: 
+			ui-icon-search ui-btn-icon-top
+			ui-btn-icon-right
+			ui-btn-icon-bottom
+			ui-btn-icon-left
+		To only display the icon, use "notext" as value for icon position: ui-btn-icon-notext
+		
+		By default, all icons have a gray circle (disc) around them. To remove the circle, add the "ui-nodisc-icon" 
+	class to the element or its container: class="ui-btn ui-icon-search ui-btn-icon-left ui-nodisc-icon"
+		By default, all icons are white. To change the icon color to black, add the "ui-alt-icon" to the element or its container:
+		class="ui-btn ui-icon-search ui-btn-icon-left ui-alt-icon"
+		
+	Mobile Popups:
+		<a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">Show Popup</a>
+		<div data-role="popup" id="myPopup">
+		  <p>This is a simple popup.</p>
+		</div>
+		
+		data-dismissible="false": no se cierra al pulsar fuera del popup
+		add a data-rel="back" button to go back
+		
+		data-position-to="window" 	Popup will appear centered within the window
+		data-position-to="#myId" 	Popup is positioned over the element with a specified #id
+		data-position-to="origin" 	Default. Popup is positioned directly over the clicked element
+		
+		data-transition="value": para añadir efecto de transition
+		
+		agregar una "flecha" como un bocadillo: data-arrow="l": "l" (left), "t" (top), "r" (right) or "b" (bottom):
+		
+		You can add standard dialog markup into a popup (header, content and footer markup)
+		You can also display images in a popup: 
+		<a href="#myPopup" data-rel="popup" data-position-to="window"><img src="skaret.jpg" alt="Skaret View" style="width:200px;"></a>	
+		the background color behind the popup: data-overlay-theme="a" to add a light overlay and data-overlay-theme="b" to add a dark overlay:
+
+	Mobile Toolbars:
+		Toolbar elements are often placed inside headers and footers - for "easy-access" navigation:
+		una lista de botones: <a href="#anylink" class="ui-btn ui-icon-search ui-btn-icon-left">Search</a>
+		
+		Inline - Default. Headers and footers are inline with the page content
+		Fixed - Headers and footers will remain positioned at the top and bottom of the page
+		Fullscreen - Behaves like fixed; but also over the page content. It is also slightly see-through
+		
+	Mobile Navigation Bars
+		<div data-role="navbar">
+			<ul>
+			  <li><a href="#anylink">Home</a></li>
+			  <li><a href="#anylink">Page Two</a></li>
+			  <li><a href="#anylink">Search</a></li>
+			</ul>
+		</div>
+	
+		data-icon="home" 		Home 	
+		data-icon="arrow-r" 	Right Arrow 	
+		data-icon="search" 		Search
+	
+		data-iconpos="top" 		Default,Top icon alignment 	
+		data-iconpos="right" 	Right icon alignment 	
+		data-iconpos="bottom" 	Bottom icon alignment 	
+		data-iconpos="left" 	Left icon alignment
+	
+		Para que el actual aparezca seleccionado: class="ui-btn-active ui-state-persist"
+	
+	Mobile Panels:
+		<div data-role="panel" id="myPanel">
+		  <h2>Panel Header..</h2>
+		  <p>Some text..</p>
+		</div>
+		<a href="#myPanel" class="ui-btn ui-btn-inline">Open Panel</a>
+		data-dismissible 	true | false 	Specifies whether the panel can be closed by clicking outside of it, or not 	
+		data-swipe-close 	true | false 	Specifies whether the panel can be closed by swiping, or not
+		
+		data-display="overlay" 	Displays the panel over the content
+		data-display="push" 	Animates both the panel and the page at the same time
+		data-display="reveal" 	Default. The panel will sit under the page and reveal as the page slides away
+		
+		data-position="right" aparece el panel por la derecha en vez de la izq.
+		data-position-fixed="true"
+		
+	Mobile Collapsibles: boton + -
+		<div data-role="collapsible">
+		  <h1>Click me - I'm collapsible!</h1>
+		  <p>I'm the expanded content.</p>
+		</div>
+		By default, the content is closed. To expand the content when the page loads, use data-collapsed="false":
+		collapsible can be inside a collapsible
+		<div data-role="collapsibleset">
+		...una lista de collapsible
+		</div>
+		
+	Mobile Tables:
+		Reflow Table: cuando ya no cabe la tabla, se pone las columnas en filas.
+		<table data-role="table" class="ui-responsive">
+	
+		"column toggle": this will hide columns when there is not enough width to display the data.
+		<table data-role="table" data-mode="columntoggle" class="ui-responsive" id="myTable">	
+		data-priority attribute to the table's header (<th>) and specify a number between 1 (highest priority) to 6 (lowest priority):
+			<th data-priority="1">I am very important - I will probably not be hidden</th>
+		If you do not specify a priority for a column, the column will be persistent and not available for hiding.	
+			
+	Mobile Layout Grids:		
+		ui-grid-solo 	1 	100% 						ui-block-a 	
+		ui-grid-a 	2 	50% / 50% 						ui-block-a|b 	
+		ui-grid-b 	3 	33% / 33% / 33% 				ui-block-a|b|c  	
+		ui-grid-c 	4 	25% / 25% / 25% / 25% 			ui-block-a|b|c|d 	
+		ui-grid-d 	5 	20% / 20% / 20% / 20% / 20% 	ui-block-a|b|c|d|e		
+		
+		<div class="ui-grid-b ui-responsive">
+		
+	Mobile List Views:		
+		<ol data-role="listview">
+			<li><a href="#">List Item</a></li>
+		</ol>
+
+		<ul data-role="listview">
+		  <li><a href="#">List Item</a></li>
+		</ul>	
+		To style your lists with rounded corners and some margin, use the data-inset="true"	
+		By default, links inside a list item will automatically turn into a button:ui-class="btn" or data-role="button"	
+		<li data-role="list-divider">Europe</li> : to organize and group items into categories/sections.	
+		data-autodividers="true" : agrupar en lista alfabetcamente automaticamente	
+		Read-only lists:  <li>List Item</li>	
+		
+	Mobile List Content:
+		List Icons: <li data-icon="plus"...
+			Default is right arrow(>), plus(+), minus(-), delete(x), location(gps), false(none)
+			To use a img(16x16px) at left: <li><a href="#"><img src="us.png" alt="USA" class="ui-li-icon">USA</a></li>
+			For images larger than 16x16px, add an <img> element inside a list item as the first child element (with no class name).
+		jQuery Mobile will automatically scale the image to 80x80px:
+			<ul data-role="listview">
+			  <li ...>
+				<a href="#">
+				<img src="chrome.png">
+				<h2>Google Chrome</h2>
+				<p>Google Chrome is a free, open-source web browser. Released in 2008.</p>
+				</a>
+				<a href="#"> para separar el boton derecho del texto
+			  </li>
+			</ul>
+		To add count bubbles, use an inline element, such as <span>, with class "ui-li-count" and add a number
+			<li><a href="#">Inbox<span class="ui-li-count">25</span></a></li>
+	
+	Mobile Filters:
+		The element you want to be filterable, must include the data-filter="true" attribute.
+		Create an <input> element with a specified id and add the data-type="search" attribute. This will create a basic 
+	search field. Wrap the <input> in a form, and add the "ui-filterable" class to the <form> element - this will adjust 
+	the margin between the search field and the filterable element.
+		Then, add the data-input attribute to the filterable element. Its value must match the id of the <input> element.
+
+		<form class="ui-filterable">
+		  <input id="myFilter" data-type="search" placeholder="pista para la busqueda">
+		</form>
+
+		<ul data-role="listview" data-filter="true" data-input="#myFilter">
+		  <li><a href="#">Adele</a></li>
+		  <li><a href="#">Billy</a></li>
+		  <li><a href="#">Calvin</a></li>
+		</ul>
+
+		<li data-filtertext="fav"><a href="#">Adele</a></li>: You can only find Adele by typing the keywords "f, a, v or fav".)
+
+	Mobile Forms:
+		<form method="post" action="/action_page_post.php">
+		  <label for="fname">First name:</label>
+		  <input type="text" name="fname" id="fname">
+		</form>
+		placeholder="First name..."
+		class="ui-hidden-accessible" to hide the label
+		data-clear-btn="true" : an X icon on the right side of the input field
+		
+		<input type="button" value="Button">
+		<input type="reset" value="Reset Button">
+		<input type="submit" value="Submit Button">
+		
+		data-corners 	true(default) | false 							Specifies whether the button should have rounded corners or not
+		data-icon 		Icons Reference 								Specifies the icon of the button
+		data-iconpos 	left(default) | right | top | bottom | notext 	Specifies the position of the icon
+		data-inline 	true | false(default) 							Specifies whether the button should be inline or not
+		data-mini 		true | false (default)							Specifies whether the button should be small or not
+		data-shadow 	true(default)| false 							Specifies whether the button should have shadows or not
+		
+		<div class="ui-field-contain">...</div> : 
+		When the width of the page is greater than 480px, it automatically place the label on the same line as the form control.
+When the page is less than 480px, the label will be placed above the form element, and a thin bottom border will be added below the form element.
+		
+		jQuery Mobile will automatically handle the form submission via AJAX, and will attempt to integrate the server response into the DOM of the application.
+		
+		Text Inputs: 	<input type="text" name="fullname" id="fullname">
+						<input type="date" name="bday" id="bday">
+						<input type="email" name="email" id="email" placeholder="Your email..">
+						<textarea name="addinfo" id="info"></textarea>
+		Search Inputs:	<input type="search" name="search" id="search">
+		Radio Buttons:	<fieldset data-role="controlgroup" data-type="horizontal">
+							<legend>Choose your gender:</legend>
+							<label for="male">Male</label>
+							<input type="radio" name="gender" id="male" value="male">
+							<label for="female">Female</label>
+							<input type="radio" name="gender" id="female" value="female">
+						 </fieldset>
+		Checkboxes: como radio buttons pero <input type="checkbox" name="favcolor" id="red" value="red">
+		*to be "pre-selected", use the HTML <input> checked attribute: <input type="radio" checked>
+		Select Menus
+		<fieldset data-role="controlgroup">
+		<select name="day" id="day" multiple>
+			<optgroup label="Weekdays">
+				<option value="mon">Monday</option>
+				<option value="tue">Tuesday</option>
+				<option value="wed">Wednesday</option>
+			</optgroup>
+			<optgroup label="Weekends">
+				<option value="sat">Saturday</option>
+				<option value="sun">Sunday</option>
+			</optgroup>
+		</select>	
+			To select multiple options in the select menu, use the multiple attribute in the <select> element
+		Sliders
+			<input type="range" name="points" id="points" value="50" min="0" max="100">
+			If you want to show the value on the slider button, add data-show-value="true"
+			If you want to the value to pop up on your screen like a tooltip (as you slide), add data-popup-enabled="true"
+			If you want to highlight the track up to the slider value, add data-highlight="true".		
+		Flip Toggle Switches
+			<input type="checkbox" data-role="flipswitch" name="switch" id="switch">
+			data-on-text="True" data-off-text="False" default checked
+			 
+		<a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline">Show Popup Form</a>
+			<div data-role="popup" id="myPopup" class="ui-content">
+				...my form
+			</div>
+			
+	Mobile Events:		
+		Touch events - triggers when a user touches the screen (tap and swipe)
+			$("p").on("tap",function(){
+			  $(this).hide();
+			});
+			The taphold event is triggered when the user taps on an element and hold for one second
+			The swipe event is triggered when the user swipes over an element horizontally by more than 30px
+			The swipeleft event is triggered when the user swipes over an element in the left direction by more than 30px
+			The swiperight event is triggered when the user drags over an element in the right direction by more than 30px
+		Scroll events - triggers when a user scrolls up and down
+			$(document).on(...)
+			The scrollstart event is triggered when the user starts to scroll(desplazarse) the page
+			The scrollstop event is triggered when the user stops to scroll the page
+		Orientation events - triggers when the device rotates vertically or horizontally
+			The orientationchange event is triggered when the user rotates the mobile device vertically or horizontally.
+			$(window).on("orientationchange",function(){
+			  alert("The orientation has changed!");
+			}); 
+		Page events - triggers when a page is shown, hidden, created, loaded and/or unloaded	
+			Page Initialization - Before page creation, and when the page has been created
+			Page Load/Unload - When an external page is loading, unloading or encounters a failure
+			Page Transition - Before and after page transitions
+			Page Change - When pages are changed to or from, or encounters a failure
+			
+			pagebeforecreate 			Triggered when the page is about to be initialized, and before jQuery Mobile has started enhancing the page
+			pagecreate 					Triggered when the page has been created, but before enhancement is complete
+			pagecontainerbeforeload 	Triggered before any page load request is made
+			pagecontainerload 			Triggered after the page has been successfully loaded and inserted into the DOM
+			pagecontainerloadfailed 	Triggered if the page load request fails. By default, it will show the "Error Loading Page" message
+			$(document).on(...)
+			pagebeforeshow 	Triggered on the "to" page, before the transition animation starts
+			pageshow 		Triggered on the "to" page, after the transition animation completes
+			pagebeforehide 	Triggered on the "from" page, before the transition animation starts
+			pagehide 		Triggered on the "from" page, after the transition animation completes
+			$(document).on("pagebeforeshow","#pagetwo",function(){...})
+	
+	
+	
+	
+	
+	
+	
+	
 	
